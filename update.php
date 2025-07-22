@@ -14,13 +14,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $titulo = $_POST["titulo"];
     $conteudo = $_POST["conteudo"];
 
-    $sql = "UPDATE textos SET titulo = '$titulo', conteudo = '$conteudo' WHERE id = $id";
-    if($conn->query($sql) === true){
+    $stmt = $conn->prepare("UPDATE textos SET titulo = ?, conteudo = ? WHERE id = ?");
+    $stmt->bind_param("ssi", $titulo, $conteudo, $id);
+    if($stmt->execute()){
         echo "Texto atualizado com sucesso!";
         echo "<br><a href='read.php'>Voltar</a>";
     }else{
-        echo "Erro ao atualizar: " . $conn->error;
+        echo "Erro ao atualizar: " . $stmt->error;
     }
+    stmt->close();
     exit;
 }
 

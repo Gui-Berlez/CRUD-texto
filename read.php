@@ -12,7 +12,7 @@ if($resultado->num_rows > 0){
         echo "<h3>" . htmlspecialchars($linha["titulo"]) . "</h3>";
         echo "<p>" . nl2br(htmlspecialchars($linha["conteudo"])) . "</p>";
         echo "<small> Criado em: " . $linha["data_criacao"] . "</small>";
-        echo "<a href='update.php?id=" . $linha['id'] . "'>Editar</a>";
+        echo " | <a href='update.php?id=" . $linha['id'] . "'>Editar</a>";
         echo " | <a href='delete.php?id=" . $linha["id"] . "' onclick='return confirm(\"Tem certeza que deseja excluir este texto?\");'>Excluir</a>";
         echo "</div>";
     }
