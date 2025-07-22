@@ -12,6 +12,7 @@ if($resultado->num_rows > 0){
         echo "<h3>" . htmlspecialchars($linha["titulo"]) . "</h3>";
         echo "<p>" . nl2br(htmlspecialchars($linha["conteudo"])) . "</p>";
         echo "<small> Criado em: " . $linha["data_criacao"] . "</small>";
+        echo "<a href='update,php?id=" . $linha['id'] . "'>Esditar</a>";
         echo "</div>";
     }
 }else{
