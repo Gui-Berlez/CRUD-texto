@@ -4,7 +4,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $titulo = $_POST["titulo"];
     $conteudo = $_POST["conteudo"];
 
-    $sql = "INSERT INTO textos (titulo, conteudo) VALUES ('$titulo', '$conteudo')";
+    $sql = "INSERT INTO textos(titulo, conteudo) VALUES ('$titulo', '$conteudo')";
     if($conn->query($sql) === true){
         echo "Texto adicionado com sucesso!";
     }else{
