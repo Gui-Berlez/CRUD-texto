@@ -9,11 +9,11 @@ if(!isset($_GET["id"])){
 $id = $_GET["id"];
 
 // Verifica se o ID é um número válido
-if($_SERVER[REQUEST_METHOD] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $titulo = $_POST["titulo"];
     $conteudo = $_POST["conteudo"];
 
-    $sql = "UPDATE textos SET titulo = '$titulo', contedudo = '$conteudo' WHERE id = $id";
+    $sql = "UPDATE textos SET titulo = '$titulo', conteudo = '$conteudo' WHERE id = $id";
     if($conn->query($sql) === true){
         echo "Texto atualizado com sucesso!";
         echo "<br><a href='read.php'>Voltar</a>";
