@@ -6,6 +6,7 @@ if(!isset($_GET["id"])){
     exit;
 }
 
+// $id recebe o valor do id passado via GET. Para editar o texto específico
 $id = $_GET["id"];
 
 // Verifica se o ID é um número válido
