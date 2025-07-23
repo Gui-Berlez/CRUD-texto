@@ -5,11 +5,10 @@ require_once(__DIR__ . "/../model/db.php");
 $acao = $_GET["acao"] ?? "listar";
 
 switch ($acao){
-
     case "criar":
         if($_SERVER["REQUEST_METHOD"] == "POST"){
             Texto::inserir($conn, $_POST["titulo"], $_POST["conteudo"]);
-            header("Location: TextosController.php?acao=listar");
+            header("Location: TextosController.php");
         }else{
             // Exibe o formulário de criação
             include("../view/create.php");
@@ -18,9 +17,9 @@ switch ($acao){
 
     case "editar":
         $id = $_GET["id"] ?? null;
-        if($id && $_SERVER[REQUEST_METHOD] == "POST"){
+        if($id && $_SERVER["REQUEST_METHOD"] == "POST"){
             Texto::atualizar($conn, $id, $_POST["titulo"], $_POST["conteudo"]);
-            header("Location: TextosController.php?acao=listar");
+            header("Location: TextosController.php");
 
         }else{
             //
@@ -30,18 +29,12 @@ switch ($acao){
         break;
 
     case "excluir":
-    $id = $_GET["id"] ?? null;
-
-     if ($id) {
-        $texto = Texto::buscarPorId($conn, $id);
-
-        if ($texto) {
-            include("../view/delete.php");
-        } else {
-            echo "Texto com ID $id não encontrado.";
+        $id = $_GET["id"] ?? null;
+        if($id){
+            Texto::excluir($conn, $id);
+            header("Location: TextosController.php");
         }
-    }
-    break;
+        break;
 
     default:
         $resultados = Texto::listarTodos($conn);
