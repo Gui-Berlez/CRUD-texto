@@ -1,4 +1,4 @@
 <?php
-    header("Location: controller/TextoController.php");
+    header("Location: controller/TextosController.php");
     exit;
 ?>

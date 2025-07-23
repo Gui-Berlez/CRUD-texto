@@ -1,18 +1,9 @@
-<?php include("db.php");
-
-if(!isset($_GET["id"])){
-    echo "ID do texto não fornecido.";
-    exit;
-}
-
-$id = $_GET["id"];
-
-$stmt = $conn->prepare( "DELETE FROM textos WHERE id = ?");
-$stmt->bind_param("i",$id);
-if($stmt->execute()){
-    echo "Texto excluído com sucesso!";
-    echo "<br><a href='read.php'>Voltar</a>";
-}else{
-    echo "Erro ao excluir: " . $stmt->error;
-}
-$stmt->close();
+<?php if(isset($texto)) : ?>
+<h2>Confirmar exclusão</h2>
+<p>Você tem certeza que deseja excluir o texto?</p>
+<a href="../controller/TextosController.php?acao=excluir&id=<?= $texto["id"] ?>">Sim, excluir</a>
+&nbsp;|&nbsp;
+<a href="../controller/TextosController.php">Voltar</a>
+<?php else : ?>
+    <p>Texto não encontrado.</p>
+<?php endif; ?>

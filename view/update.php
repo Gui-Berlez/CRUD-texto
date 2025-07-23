@@ -1,45 +1,5 @@
-<?php include("db.php"); 
-
-// Verifica se o ID do texto foi fornecido
-if(!isset($_GET["id"])){
-    echo "ID do texto não fornecido.";
-    exit;
-}
-
-// $id recebe o valor do id passado via GET. Para editar o texto específico
-$id = $_GET["id"];
-
-// Verifica se o ID é um número válido
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $titulo = $_POST["titulo"];
-    $conteudo = $_POST["conteudo"];
-
-    $stmt = $conn->prepare("UPDATE textos SET titulo = ?, conteudo = ? WHERE id = ?");
-    $stmt->bind_param("ssi", $titulo, $conteudo, $id);
-    if($stmt->execute()){
-        echo "Texto atualizado com sucesso!";
-        echo "<br><a href='read.php'>Voltar</a>";
-    }else{
-        echo "Erro ao atualizar: " . $stmt->error;
-    }
-    stmt->close();
-    exit;
-}
-
-//Busca dados atuais do texto
-$sql = "SELECT * FROM textos WHERE id = $id";
-$resultado = $conn->query($sql);
-
-if($resultado->num_rows == 0){
-    echo "Texto não encontrado.";
-    exit;
-}
-
-$texto = $resultado->fetch_assoc();
-?>
-
 <h2>Editar texto</h2>
-<form method="POST">
+<form method="POST" action="../controller/TextosController.php?acao=editar&id=<?= $id ?>">
     <input type="text" name="titulo" value="<?= htmlspecialchars($texto["titulo"]) ?>" required><br><br>
     <textarea name="conteudo" rows="5" cols="40" required><?= htmlspecialchars($texto["conteudo"]) ?></textarea><br><br>
     <button type="submit">Atualizar</button>

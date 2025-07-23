@@ -4,19 +4,20 @@ require_once("db.php");
 Class Texto{
     public static function listarTodos($conn){
         $sql = "SELECT * FROM textos ORDER BY data_criacao DESC";
-        return $conn->quary($sql);
+        //var_dump($conn->query($sql));
+        return $conn->query($sql);
     }
 
     public static function buscarPorId($conn, $id){
         $stmt = $conn->prepare("SELECT * FROM textos WHERE id = ?");
         $stmt->bind_param("i",$id);
         $stmt->execute();
-        return $stt->get_result()->fetch_assoc();
+        return $stmt->get_result()->fetch_assoc();
     }
 
     public static function inserir($conn, $titulo, $conteudo){
         $stmt = $conn->prepare("INSERT  INTO textos(titulo, conteudo) VALUES(?, ?)");
-        $stmt->bibd_param("ss",$titulo, $conteudo);
+        $stmt->bind_param("ss",$titulo, $conteudo);
         return $stmt->execute();
     }
 
