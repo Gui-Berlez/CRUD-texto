@@ -1,4 +1,5 @@
 <h2>Lista de textos</h2>
+<a href="../view/create.php">Adicionar novo texto</a>
 <?php while ($linha = $resultados->fetch_assoc()) : ?>
     <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
         <h3><?= htmlspecialchars($linha["titulo"]) ?></h3>
@@ -8,4 +9,3 @@
         <a href="../controller/TextosController.php?acao=excluir&id=<?= $linha["id"] ?>" onclick="return confirm('Deseja excluir?')">Excluir</a>
     </div>
 <?php endwhile; ?>
-<a href="../view/create.php">Adicionar novo texto</a>
