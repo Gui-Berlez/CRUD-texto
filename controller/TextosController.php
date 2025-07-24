@@ -22,7 +22,7 @@ switch ($acao){
             header("Location: TextosController.php");
 
         }else{
-            //
+            // Busca o texto pelo ID
             $texto = Texto::buscarPorId($conn, $id);
             include("../view/update.php");
         }

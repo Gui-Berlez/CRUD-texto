@@ -1,3 +1,4 @@
+// n esta sendo utilizado esse arquivo.
 <?php if(isset($texto)) : ?>
 <h2>Confirmar exclusão</h2>
 <p>Você tem certeza que deseja excluir o texto?</p>
