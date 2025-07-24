@@ -1,7 +1,14 @@
-<h2>Lista de textos</h2>
-<a href="../view/create.php">Adicionar novo texto</a>
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de textos</title>
+    <link rel="stylesheet" href="../css/read.css">
+</head>
+<div class="header">
+<h1>Lista de textos</h1>
+<a class="newText" href="../view/create.php">Adicionar novo texto</a>
+</div>
 <?php while ($linha = $resultados->fetch_assoc()) : ?>
-    <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+    <div class="card">
         <h3><?= htmlspecialchars($linha["titulo"]) ?></h3>
         <p><?= nl2br(htmlspecialchars($linha["conteudo"])) ?></p>
         <small><?= $linha["data_criacao"] ?></small><br>
