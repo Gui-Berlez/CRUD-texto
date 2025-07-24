@@ -7,3 +7,52 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.08);
 }
 
+.create-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #0066cc;
+}
+
+.create-container input[type="text"],
+.create-container textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+.create-container textarea {
+  resize: vertical;
+}
+
+.create-container button {
+  background-color: #007acc;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-container button:hover {
+  background-color: #005fa3;
+}
+
+.create-container a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007acc;
+  font-weight: bold;
+}
+
+.create-container a:hover {
+  color: #005fa3;
+  text-decoration: underline;
+}
