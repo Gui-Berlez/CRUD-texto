@@ -22,8 +22,8 @@ Este projeto é um CRUD (Create, Read, Update, Delete) desenvolvido em **PHP pur
 - MySQL
 - Padrão MVC
 - HTML5
-- XAMPP (servidor local para desenvolvimento)  
-<!-- - CSS (opcional, não incluído nesta versão) -->
+- CSS3
+- XAMPP (servidor local para desenvolvimento)
 
 ---
 
